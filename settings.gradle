@@ -1,0 +1,3 @@
+rootProject.name = 'times-exam'
+include 'times-exam-web'
+include 'times-exam-api'
