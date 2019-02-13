@@ -1,26 +1,12 @@
 //defaultTasks 'times-exam-web:clean', 'times-exam-web:yarn', 'times-exam-web:yarn_run_build-test',  'times-exam-web:webjar', 'times-exam-api:clean', 'times-exam-api:build'
 //defaultTasks 'times-exam-web:clean', 'times-exam-web:yarn',   'times-exam-web:webjar', 'times-exam-api:clean', 'times-exam-api:build'
 
-    
+
 
 
 defaultTasks 'build'
 
-wrapper {
-    description "Regenerates the Gradle Wrapper files"
-    gradleVersion = '5.0'
-    distributionUrl = "http://services.gradle.org/distributions/gradle-${gradleVersion}-all.zip"
-}
 
-allprojects {
-    repositories {
-        mavenCentral()
-    }
-}
-
-subprojects {
-    version = '1.0'
-}
 
 buildscript {
     ext {
@@ -57,7 +43,9 @@ bootRun {
     systemProperties System.properties
 }
 
-task stage(dependsOn: ['build', 'clean'])
+task stage(dependsOn: ['build']) {}
+
+stage.mustRunAfter(build)
 
 //task stage(dependsOn: ['build', 'clean','copyAppLibs'])
 
@@ -71,5 +59,19 @@ task stage(dependsOn: ['build', 'clean'])
 //copyAppLibs.mustRunAfter(build)
 //copyAppLibs.mustRunAfter(assemble)
 
+wrapper {
+    description "Regenerates the Gradle Wrapper files"
+    gradleVersion = '5.0'
+    distributionUrl = "http://services.gradle.org/distributions/gradle-${gradleVersion}-all.zip"
+}
 
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    version = '1.0'
+}
 
