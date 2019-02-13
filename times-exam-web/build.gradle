@@ -14,6 +14,7 @@ buildscript {
 apply plugin: 'base'
 apply plugin: 'com.moowork.node' // gradle-node-plugin
 
+
 node {
     /* gradle-node-plugin configuration
        https://github.com/srs/gradle-node-plugin/blob/master/docs/node.md
@@ -30,7 +31,15 @@ node {
 
     // If true, it will download node using above parameters.
     // If false, it will try to use globally installed node.
-    download = true
+
+    if(isLocal)
+    {
+        download = false
+    }
+    else {
+        download = true
+    }
+
 }
 
 npm_run_build {
