@@ -47,4 +47,5 @@ task copyAppLibs(type: Copy) {
 }
 
 copyAppLibs.mustRunAfter(build)
+copyAppLibs.mustRunAfter(assemble)
 
