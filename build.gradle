@@ -1,7 +1,7 @@
 //defaultTasks 'times-exam-web:clean', 'times-exam-web:yarn', 'times-exam-web:yarn_run_build-test',  'times-exam-web:webjar', 'times-exam-api:clean', 'times-exam-api:build'
 //defaultTasks 'times-exam-web:clean', 'times-exam-web:yarn',   'times-exam-web:webjar', 'times-exam-api:clean', 'times-exam-api:build'
 
-
+    
 
 
 defaultTasks 'build'
